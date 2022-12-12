@@ -28,6 +28,19 @@
         <!-- RESPONSIVE -->
         <link rel="stylesheet" href="css/responsive.css">
 
+      <style>
+        .error{
+          color:red !important;
+        }
+        input.error{
+          border:1px solid red !important;
+          color: red !important;
+        }
+        .w-33{
+          width: 33%;
+        }
+      </style>
+
     </head>
 
 
@@ -111,107 +124,115 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-12 col-lg-10">
-                <form>
+                <form action="sendmail.php" method="POST">
                   <fieldset>
-                    <div class="form-group w-50">
-                      <input type="text" class="form-control" id="firstName">
+                    <div class="form-group w-33">
+                      <input name="firstName" type="text" class="form-control" id="firstName" required>
                       <label for="firstName">First name <span>*</span></label>
                     </div>
-                    <div class="form-group w-50">
-                      <input type="text" class="form-control" id="lastName">
+                    <div class="form-group w-33">
+                      <input name="lastName" type="text" class="form-control" id="lastName" required>
                       <label for="lastName">Last name <span>*</span></label>
                     </div>
-                    <div class="form-group w-50">
-                      <input type="text" class="form-control" id="companyName">
+                    <div class="form-group w-33">
+                      <input name="companyName" type="text" class="form-control" id="companyName" required>
                       <label for="companyName">Company name <span>*</span></label>
                     </div>
                     <div class="form-group w-50">
-                      <input type="text" class="form-control" id="website">
+                      <input name="website" type="url" class="form-control" id="website" required>
                       <label for="website">Website <span>*</span></label>
+                    </div>
+                    <div class="form-group w-50">
+                      <input name="email" type="email" class="form-control" id="email" required>
+                      <label for="email">Email <span>*</span></label>
                     </div>
                     <div class="form-group gap-12 w-100">
                       <label>Which region(s) are you looking to process with FacilitaPay? <span>*</span></label>
                       <ul class="gap-12 inline">
                         <li>
-                          <input type="checkbox" id="argentina">
+                          <input name="region" type="checkbox" value="Argentina" id="argentina" required>
                           <label for="argentina">Argentina</label>
                         </li>
                         <li>
-                          <input type="checkbox" id="brazil">
+                          <input name="region" type="checkbox" value="Brazil" id="brazil" required>
                           <label for="brazil">Brazil</label>
                         </li>
                         <li>
-                          <input type="checkbox" id="chile">
+                          <input name="region" type="checkbox" value="Chile" id="chile" required>
                           <label for="chile">Chile</label>
                         </li>
                         <li>
-                          <input type="checkbox" id="colombia">
+                          <input name="region" type="checkbox" value="Colombia" id="colombia" required>
                           <label for="colombia">Colômbia</label>
                         </li>
                         <li>
-                          <input type="checkbox" id="mexico">
+                          <input name="region" type="checkbox" value="Mexico" id="mexico" required>
                           <label for="mexico">México</label>
                         </li>
                       </ul>
                     </div>
                     <div class="form-group w-100">
-                      <select class="w-100">
+                      <select name="tvp" class="w-100" required>
                         <option>Monthly TPV <span>*</span></option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
+                        <option value="0-500k">0-500k USD</option>
+                        <option value="500-2.5mi">500-2.5mi USD</option>
+                        <option value="2.5-10mi">2.5-10mi USD</option>
+                        <option value="10mi+">10mi+ USD</option>
                       </select>
-                    </div>                  
+                    </div>
                     <div class="form-group gap-12 w-100">
                       <label>Which solution(s) do you need? <span>*</span></label>
                       <ul class="gap-12">
                         <li>
-                          <input type="checkbox" id="id1">
-                          <label for="id1">Payins - Accept local payment methods.</label>
+                          <input name="solution[]" value="Payins - Accept local payment methods." type="checkbox" id="id1" required>
+                            <label for="id1" >Payins - Accept local payment methods.</label>
                         </li>
                         <li>
-                          <input type="checkbox" id="id2">
-                          <label for="id2">Payouts - Orchestrate local payouts.</label>
+                          <input name="solution[]" value="Payouts - Orchestrate local payouts." type="checkbox" id="id2" required>
+                          <label for="id2" >Payouts - Orchestrate local payouts.</label>
                         </li>
                         <li>
-                          <input type="checkbox" id="id3">
-                          <label for="id3">Direct Issuing</label>
+                          <input name="solution[]" value="Direct Issuing" type="checkbox" id="id3" required>
+                          <label for="id3" >Direct Issuing</label>
                         </li>
                         <li>
-                          <input type="checkbox" id="id4">
-                          <label for="id4">Select Start processing in Latin America for the first time Expand to new countries in Latin America</label>
+                          <input name="solution[]" value="Select Start processing in Latin America for the first time Expand to new countries in Latin America" type="checkbox" id="id4" required>
+                          <label for="id4" >Select Start processing in Latin America for the first time Expand to new countries in Latin America</label>
                         </li>
                         <li>
-                          <input type="checkbox" id="id5">
-                          <label for="id5">Explore new payment methods for the Latin America strategy</label>
+                          <input name="solution[]" value="Explore new payment methods for the Latin America strategy" type="checkbox" id="id5" required>
+                          <label for="id5" >Explore new payment methods for the Latin America strategy</label>
                         </li>
                         <li>
-                          <input type="checkbox" id="id6">
-                          <label for="id6">Increase and optimize existing payments performance</label>
+                          <input name="solution[]" value="Increase and optimize existing payments performance" type="checkbox" id="id6" required>
+                          <label for="id6" >Increase and optimize existing payments performance</label>
                         </li>
                         <li>
-                          <input type="checkbox" id="id7">
-                          <label for="id7">I need help processing a refund or purchase made through an FacilitaPay merchant</label>
+                          <input name="solution[]" value="I need help processing a refund or purchase made through an FacilitaPay merchant" type="checkbox" id="id7" required>
+                          <label for="id7" >I need help processing a refund or purchase made through an FacilitaPay merchant</label>
                         </li>
                         <li>
-                          <input type="checkbox" id="id8">
+                          <input name="solution[]" type="checkbox" value="Others" id="id8" required>
                           <label for="id8">Others</label>
                         </li>
                       </ul>
                     </div>
-                    <div class="form-group w-100">
-                      <button class="btn d-flex w-100">Submit</button>
-                    </div>
+
                     <div class="form-group gap-24 w-100">
                       <p class="sub">Facilitapay is committed to protecting and respecting your privacy, and we’ll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick the box below.</p>
                       <ul>
                         <li>
-                          <input type="checkbox" name="">
+                          <input name="agree" type="checkbox" required>
                           <label>I agree to receive other communications from Facilitapay.</label>
                         </li>
                       </ul>
                       <p class="sub">You can unsubscribe from these communications at any time. For more information on how to unsubscribe, our privacy practices, and how we are committed to protecting and respecting your privacy, please review our Privacy Policy. By clicking submit below, you consent to allow dLocal to store and process the personal information submitted above to provide you the content requested.</p>
                     </div>
+
+                    <div class="form-group w-100">
+                      <button class="btn d-flex w-100">Submit</button>
+                    </div>
+
                   </fieldset>
                 </form>
               </div>
@@ -344,12 +365,66 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+        <script src="js/jquery.mask.min.js"></script>
+        <script src="node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+
         <script type="text/javascript">
           $(".toggle").click(function(){
             $(".menu").toggleClass("open");
           });
+
+          $(document).ready(function(){
+
+            $.validator.addMethod('nofreeemail', function (value, element) {
+              return this.optional( element ) || /^([\w-.]+@(?!gmail\.com)(?!yahoo\.com)(?!hotmail\.com)(?!mail\.ru)(?!yandex\.ru)(?!mail\.com)([\w-]+.)+[\w-]{2,4})?$/.test(value);
+            }, 'Free email addresses are not allowed.');
+
+            $("form").validate({
+              rules: {
+                email: {
+                  required: true,
+                  nofreeemail: true
+                }
+              },
+            });
+
+            $('.date').mask('00/00/0000');
+            $('.time').mask('00:00:00');
+            $('.date_time').mask('00/00/0000 00:00:00');
+            $('.cep').mask('00000-000');
+            $('.phone').mask('0000-0000');
+            $('.phone_with_ddd').mask('(00) 0000-0000');
+            $('.phone_us').mask('(000) 000-0000');
+            $('.mixed').mask('AAA 000-S0S');
+            $('.cpf').mask('000.000.000-00', {reverse: true});
+            $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+            $('.money').mask('000.000.000.000.000,00', {reverse: true});
+            $('.money2').mask("#.##0,00", {reverse: true});
+            $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+              translation: {
+                'Z': {
+                  pattern: /[0-9]/, optional: true
+                }
+              }
+            });
+            $('.ip_address').mask('099.099.099.099');
+            $('.percent').mask('##0,00%', {reverse: true});
+            $('.clear-if-not-match').mask("00/00/0000", {clearIfNotMatch: true});
+            $('.placeholder').mask("00/00/0000", {placeholder: "__/__/____"});
+            $('.fallback').mask("00r00r0000", {
+              translation: {
+                'r': {
+                  pattern: /[\/]/,
+                  fallback: '/'
+                },
+                placeholder: "__/__/____"
+              }
+            });
+            $('.selectonfocus').mask("00/00/0000", {selectOnFocus: true});
+          });
+
         </script>
-   
+
     </body>
 
 
